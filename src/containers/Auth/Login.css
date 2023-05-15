@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:600|Work+Sans:400,500,600,700&display=swap");
+.login-background {
+  background: linear-gradient(135deg, rgb(34, 193, 195) 0%, rgb(253, 187, 45) 100%);
+  font-family: "work sans";
+  height: 100vh;
+}
+.login-background .login-container {
+  width: 400px;
+  height: 500px;
+  margin: auto;
+  background-color: #FFFFFF;
+  border-radius: 15px;
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+.login-background .login-container .login-content {
+  padding: 15px;
+}
+.login-background .login-container .login-content input.login-button {
+  background: rgb(34, 193, 195);
+  background: linear-gradient(90deg, rgb(34, 193, 195) 0%, rgb(253, 187, 45) 100%);
+  color: white;
+  border-radius: 25px;
+  height: 40px;
+  width: 100%;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: #FFFFFF 1px solid;
+}
+.login-background .login-container .col-12 {
+  flex: 0 0 auto;
+  width: 100%;
+  padding: 10px;
+}
+.login-background .login-container .col-12.stack-icons {
+  display: flex;
+  color: white;
+  margin: auto;
+  justify-content: center;
+}
+.login-background .login-container .col-12.stack-icons .fa-google {
+  border-radius: 100%;
+  background-color: #a00;
+  font-size: 30px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+.login-background .login-container .col-12.stack-icons i.fab.fa-facebook {
+  border-radius: 100%;
+  background-color: #4267B2;
+  font-size: 30px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-background .login-container .col-12.text-center {
+  text-align: center;
+  font-family: "open sans", sans-serif;
+  padding: 2rem 0;
+  margin: 0;
+  font-size: 2rem;
+}
+.login-background .login-container .custom-password {
+  position: relative;
+}
+.login-background .login-container .custom-password i {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  cursor: pointer;
+}/*# sourceMappingURL=Login.css.map */
