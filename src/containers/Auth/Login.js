@@ -14,6 +14,7 @@ class Login extends Component {
       usename: "",
       password: "",
       isShowPassword: false,
+      errMessage: "",
     };
   }
 
@@ -21,20 +22,39 @@ class Login extends Component {
     this.setState({
       usename: event.target.value,
     });
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
   handleOnchangePassword = (event) => {
     this.setState({
       password: event.target.value,
     });
-    console.log(event.target.value);
+    // console.log(event.target.value);
   };
   handleLogin = async () => {
-    console.log(this.state);
+    this.setState({
+      errMessage: "",
+    });
     try {
-      await handleLoginApi(this.state.usename, this.state.password);
-    } catch (e) {
-      console.log(e);
+      let data = await handleLoginApi(this.state.usename, this.state.password);
+      if (data && data.err !== 0) {
+        this.setState({
+          errMessage: data.mes,
+        });
+      }
+      if (data && data.err === 0) {
+        userLoginSuccess(data.user);
+        console.log("Login succeed!");
+      }
+      userLoginFail;
+    } catch (error) {
+      if (error.response) {
+        if (error.response.data) {
+          this.setState({
+            errMessage: error.response.statusText,
+          });
+        }
+      }
+      console.log("error", error.response);
     }
   };
   handleShowhighPassword = () => {
@@ -54,6 +74,7 @@ class Login extends Component {
                 type="text"
                 className="form-control"
                 placeholder="Enter usename"
+                value={this.state.email}
                 onChange={(event) => this.handleOnchangeUsename(event)}
               ></input>
             </div>
@@ -73,7 +94,7 @@ class Login extends Component {
                   }}
                 >
                   <i
-                    class={
+                    className={
                       this.state.isShowPassword
                         ? "fa fa-eye"
                         : "fa fa-eye-slash"
@@ -81,6 +102,9 @@ class Login extends Component {
                   ></i>
                 </span>
               </div>
+            </div>
+            <div className="col-12" style={{ color: "red" }}>
+              {this.state.errMessage}
             </div>
             <div className="col-12">
               <input
@@ -99,8 +123,8 @@ class Login extends Component {
               <span>Or sign in with</span>
             </div>
             <div className="col-12 stack-icons">
-              <i class="fab fa-google  "></i>
-              <i class="fab fa-facebook  "></i>
+              <i className="fab fa-google  "></i>
+              <i className="fab fa-facebook  "></i>
             </div>
           </div>
         </div>
@@ -118,9 +142,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     navigate: (path) => dispatch(push(path)),
-    adminLoginSuccess: (adminInfo) =>
-      dispatch(actions.adminLoginSuccess(adminInfo)),
-    adminLoginFail: () => dispatch(actions.adminLoginFail()),
+    userLoginSuccess: (userInfo) =>
+      dispatch(actions.userLoginSuccess(userInfo)),
+    userLoginFail: () => dispatch(actions.userLoginFail()),
+    userLoginSuccess: (userInfo) =>
+      dispatch(actions.userLoginSuccess(userInfo)),
   };
 };
 
