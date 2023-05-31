@@ -42,15 +42,15 @@ class Login extends Component {
         });
       }
       if (data && data.err === 0) {
-        userLoginSuccess(data.user);
+        this.props.userLoginSuccess(data.user);
         console.log("Login succeed!");
       }
-      userLoginFail;
+      // userLoginFail;
     } catch (error) {
       if (error.response) {
         if (error.response.data) {
           this.setState({
-            errMessage: error.response.statusText,
+            errMessage: error.response.data.mes,
           });
         }
       }

@@ -5,7 +5,6 @@ import { ConnectedRouter as Router } from "connected-react-router";
 import { history } from "../redux";
 import { ToastContainer } from "react-toastify";
 
-
 import {
   userIsAuthenticated,
   userIsNotAuthenticated,
@@ -85,7 +84,7 @@ class App extends Component {
 const mapStateToProps = (state) => {
   return {
     started: state.app.started,
-    isLoggedIn: state.admin.isLoggedIn,
+    isLoggedIn: state.user.isLoggedIn,
   };
 };
 
