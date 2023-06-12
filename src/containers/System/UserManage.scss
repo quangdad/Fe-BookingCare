@@ -30,7 +30,7 @@ tr:hover {
     background-color: transparent;
     color: aliceblue;
     width: 40px;
-    color: rgb(117, 228, 117);
+    color: rgb(72, 241, 72);
     border-color: currentColor;
     border: 0;
 
@@ -51,5 +51,61 @@ tr:hover {
     &:hover {
         background-color: transparent !important;
         color: rgb(160, 8, 8) !important;
+    }
+}
+
+.td-btn {
+    text-align: center;
+}
+
+.btn {
+    background-color: #0071ba;
+    color: white;
+    border: 0;
+}
+
+.modal-user-container {
+    .modal-user-body {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            width: 49%;
+
+            input {
+                border-radius: 3px;
+                border: 1px solid grey;
+                height: 30px;
+                outline: none;
+                padding: 0 10px;
+
+                &:hover {
+                    border: 3px solid #7eb8df;
+
+                }
+            }
+
+            select {
+                border-radius: 3px;
+                border: 1px solid grey;
+                height: 30px;
+                outline: none;
+                padding: 0 10px;
+
+                &:hover {
+                    border: 3px solid #7dafd1;
+                }
+            }
+        }
+    }
+
+    .close {
+        background-color: transparent;
+        border: 0;
+        font-size: 23px;
+        color: white;
     }
 }

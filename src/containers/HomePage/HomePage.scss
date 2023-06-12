@@ -1,0 +1,91 @@
+////////section === section/////////
+
+.section-content {
+    background-color: #fff;
+    padding-top: 30px;
+
+    .slick-slider {
+        display: block;
+        height: 200px;
+        align-items: center;
+        margin: 25px;
+        position: relative;
+        height: 115%;
+
+        .doctor-body {
+            display: block;
+            height: 200px;
+            align-items: center;
+            margin: 25px;
+            position: relative;
+            height: 115%;
+            text-align: center;
+
+            img {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                position: relative;
+                overflow: hidden;
+                margin: 0px auto;
+                margin-bottom: 0px;
+                margin-bottom: 10px;
+            }
+        }
+
+        div {
+            height: 100%;
+        }
+
+        .slick-prev {
+            left: 0 !important;
+        }
+
+        .slick-next {
+            right: 0 !important;
+        }
+
+        .slick-arrow {
+            z-index: 999 !important;
+            top: 50% !important;
+        }
+
+        .slick-prev,
+        .slick-next {
+            font-size: 0;
+            line-height: 0;
+            position: absolute;
+            top: 50%;
+            display: block;
+            width: 20px;
+            height: 20px;
+            padding: 0;
+            -webkit-transform: translate(0, -50%);
+            -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            cursor: pointer;
+            color: transparent;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+
+        .section-body {
+            width: 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: #eee;
+        }
+    }
+}
+
+// .section-content .slick-slider {
+// display: block;
+// height: 200px;
+// align-items: center;
+// margin: 25px;
+// position: relative;
+// height: 115%;
+// text-align: center;
+//   }
