@@ -8,8 +8,11 @@ class Facilitiy extends Component {
     return (
       <div className="facility-container section-container ">
         <div className="facility-content section-content">
-          <div>
+          <div className="doctor-title section-title">
             <h2>Cơ sở thú y phổ biến</h2>
+            <span className="doctor-more section-more">
+              <a>Xem thêm</a>
+            </span>
             <Slider {...this.props.settings}>
               <div className="facility-body section-body">
                 <img src={facilityImg} />

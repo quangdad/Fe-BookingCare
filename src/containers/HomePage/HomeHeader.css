@@ -1,0 +1,153 @@
+.home-header-container {
+  height: 80px;
+  width: 100%;
+  padding: 0 20px;
+}
+.home-header-container .home-header-content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.home-header-container .home-header-content .left-content {
+  width: 15%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.home-header-container .home-header-content .left-content .fas.fa-bars {
+  font-size: 25px;
+  color: rgb(151, 144, 144);
+}
+.home-header-container .home-header-content .left-content .header-logo {
+  background: url("../../assets/images/petcarevn_logo.png") center no-repeat;
+  height: 100%;
+  width: 100%;
+  background-size: contain;
+  cursor: pointer;
+}
+.home-header-container .home-header-content .center-content {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.home-header-container .home-header-content .center-content .sub-title {
+  font-weight: 400;
+  font-size: 12px;
+}
+.home-header-container .home-header-content .right-content {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.home-header-container .home-header-content .right-content .fa,
+.home-header-container .home-header-content .right-content .fas {
+  color: cornflowerblue;
+}
+.home-header-container .home-header-content .right-content .support {
+  cursor: pointer;
+}
+.home-header-container .home-header-content .right-content .flag {
+  cursor: pointer;
+  padding-top: 44px;
+}
+.home-header-container .home-header-content .right-content .flag:hover .lang-box {
+  visibility: visible;
+}
+.home-header-container .home-header-content .right-content .flag .lang-box {
+  display: grid;
+  border: 1px solid transparent;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.1));
+  width: 25px;
+  border-radius: 2px;
+  justify-content: inherit;
+  visibility: hidden;
+}
+.home-header-container .home-header-content .right-content .flag .lang-box .language-vi {
+  cursor: pointer;
+}
+.home-header-container .home-header-content .right-content .flag .lang-box .language-vi.active span {
+  color: orangered;
+}
+.home-header-container .home-header-content .right-content .flag .lang-box .language-vi span {
+  width: 25px;
+}
+.home-header-container .home-header-content .right-content .flag .lang-box .language-vi span:hover {
+  color: rgb(28, 160, 221);
+}
+.home-header-container .home-header-content .right-content .flag .lang-box .language-en {
+  cursor: pointer;
+}
+.home-header-container .home-header-content .right-content .flag .lang-box .language-en.active span {
+  color: orangered;
+}
+.home-header-container .home-header-content .right-content .flag .lang-box .language-en span {
+  width: 25px;
+}
+.home-header-container .home-header-content .right-content .flag .lang-box .language-en span:hover {
+  color: rgb(28, 160, 221);
+}
+
+.home-header-banner {
+  background: url("../../assets/images/petbg.jpg") center center no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 550px;
+  padding: 0;
+}
+.home-header-banner .content-up {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(255, 255, 255, 0.1));
+  padding: 25px 0;
+  color: #333;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.home-header-banner .content-up .banner-part-1 {
+  text-align: center;
+  font-size: 30px;
+  text-shadow: 1px 1px 1px #333;
+  color: white;
+  padding: 15px;
+}
+.home-header-banner .content-up .banner-part-2 {
+  text-align: center;
+  font-size: 30px;
+  text-shadow: 1px 1px 1px #333;
+  color: white;
+  padding-bottom: 80px;
+}
+.home-header-banner .content-up .search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 25px;
+  background-color: #f7d800;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.home-header-banner .content-up .search input {
+  width: 350px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+}
+.home-header-banner .content-up .search .fa,
+.home-header-banner .content-up .search .fas {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  padding: 0 10px;
+}
+.home-header-banner .content-down {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.9), rgb(255, 255, 255));
+  padding-top: 30px;
+  padding-bottom: 20px;
+  height: 100%;
+  padding-bottom: 10px;
+}/*# sourceMappingURL=HomeHeader.css.map */

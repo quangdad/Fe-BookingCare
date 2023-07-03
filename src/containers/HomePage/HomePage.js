@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import HomeHeader from "./HomeHeader";
+import HomeFooter from "./HomeFooter";
 import "./HomeHeader.scss";
-import Slider from "react-slick";
 import Specialty from "./Section/Specialty";
 import Facilitiy from "./Section/Facilitiy";
 import Doctor from "./Section/Doctor";
@@ -31,6 +31,7 @@ function SamplePrevArrow(props) {
     />
   );
 }
+
 class HomePage extends Component {
   render() {
     const settings = {
@@ -48,6 +49,7 @@ class HomePage extends Component {
         <Specialty settings={settings} />
         <Facilitiy settings={settings} />
         <Doctor settings={settings} />
+        <HomeFooter />
       </div>
     );
   }

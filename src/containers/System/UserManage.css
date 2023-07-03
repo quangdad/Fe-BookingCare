@@ -1,0 +1,99 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  background-color: MediumSeaGreen;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+tr:hover {
+  background-color: LightGray;
+}
+
+.btn-edit {
+  background-color: transparent;
+  color: aliceblue;
+  width: 40px;
+  color: rgb(72, 241, 72);
+  border-color: currentColor;
+  border: 0;
+}
+.btn-edit:hover {
+  background-color: transparent !important;
+  color: rgb(11, 155, 11) !important;
+}
+
+.btn-delete {
+  background-color: transparent;
+  color: aliceblue;
+  width: 40px;
+  color: rgb(247, 46, 46);
+  border-color: currentColor;
+  border: 0;
+}
+.btn-delete:hover {
+  background-color: transparent !important;
+  color: rgb(160, 8, 8) !important;
+}
+
+.td-btn {
+  text-align: center;
+}
+
+.btn {
+  background-color: #0071ba;
+  color: white;
+  border: 0;
+}
+
+.modal-user-container .modal-user-body {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+.modal-user-container .modal-user-body .input-container {
+  display: flex;
+  flex-direction: column;
+  width: 49%;
+}
+.modal-user-container .modal-user-body .input-container input {
+  border-radius: 3px;
+  border: 1px solid grey;
+  height: 30px;
+  outline: none;
+  padding: 0 10px;
+}
+.modal-user-container .modal-user-body .input-container input:hover {
+  border: 3px solid #7eb8df;
+}
+.modal-user-container .modal-user-body .input-container select {
+  border-radius: 3px;
+  border: 1px solid grey;
+  height: 30px;
+  outline: none;
+  padding: 0 10px;
+}
+.modal-user-container .modal-user-body .input-container select:hover {
+  border: 3px solid #7dafd1;
+}
+.modal-user-container .close {
+  background-color: transparent;
+  border: 0;
+  font-size: 23px;
+  color: white;
+}/*# sourceMappingURL=UserManage.css.map */

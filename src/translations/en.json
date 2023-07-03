@@ -12,6 +12,17 @@
         "language": "EN",
         "banner1": "MEDICAL FOUNDATION",
         "banner2": "COMPREHENSIVE PET CARE"
+    },
+    "menu":{
+        "system":{
+            "header": "System",
+            "system-administrator":{
+                "header": "System manage",
+                "user-manage": "User manage",
+                "product-manage": "User redux manage"
+            }
+            
+        }
     }
    
 }

@@ -12,6 +12,18 @@
         "language": "VI",
         "banner1": "NỀN TẢNG Y TẾ",
         "banner2": "CHĂM SÓC THÚ CƯNG TOÀN DIỆN"
+    },
+    "menu":{
+        "system":{
+            "header": "Hệ thống",
+            "system-administrator":{
+                "header": "Quản lí hệ thống",
+                "user-manage": "Quản lí người dùng",
+                "product-manage": "Quản lí dữ liệu người dùng"
+            }
+            
+        }
     }
+   
     
 }

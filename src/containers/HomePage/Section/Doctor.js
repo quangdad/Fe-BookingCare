@@ -8,43 +8,46 @@ class Doctor extends Component {
     return (
       <div className="doctor-container section-container ">
         <div className="doctor-content section-content">
-          <div>
+          <div className="doctor-title section-title">
             <h2>Bác sĩ nổi bật</h2>
-            <Slider {...this.props.settings}>
-              <div className="doctor-body section-body">
-                <div className="section-item">
-                  <img src={doctorImg} />
-                  <p>Bs.Nguyễn Thị Thu Hà</p>
-                  <p>Nội khoa</p>
-                </div>
-              </div>
-              <div className="doctor-body section-body">
-                <img src={doctorImg} />
-                <p>Bs.Nguyễn Thị Thu Hà</p>
-                <p>Nội khoa</p>{" "}
-              </div>
-              <div className="doctor-body section-body">
-                <img src={doctorImg} />
-                <p>Bs.Nguyễn Thị Thu Hà</p>
-                <p>Nội khoa</p>
-              </div>
-              <div className="doctor-body section-body">
-                <img src={doctorImg} />
-                <p>Bs.Nguyễn Thị Thu Hà</p>
-                <p>Nội khoa</p>
-              </div>
-              <div className="doctor-body section-body">
-                <img src={doctorImg} />
-                <p>Bs.Nguyễn Thị Thu Hà</p>
-                <p>Nội khoa</p>
-              </div>
-              <div className="doctor-body section-body">
-                <img src={doctorImg} />
-                <p>Bs.Nguyễn Thị Thu Hà</p>
-                <p>Nội khoa</p>
-              </div>
-            </Slider>
+            <span className="doctor-more section-more">
+              <a>Xem thêm</a>
+            </span>
           </div>
+          <Slider {...this.props.settings}>
+            <div className="doctor-body section-body">
+              <div className="section-item">
+                <img src={doctorImg} />
+                <h3>Bs.Nguyễn Thị Thu Hà</h3>
+                <h4>Nội khoa</h4>
+              </div>
+            </div>
+            <div className="doctor-body section-body">
+              <img src={doctorImg} />
+              <h3>Bs.Nguyễn Thị Thu Hà</h3>
+              <h4>Nội khoa</h4>
+            </div>
+            <div className="doctor-body section-body">
+              <img src={doctorImg} />
+              <h3>Bs.Nguyễn Thị Thu Hà</h3>
+              <h4>Nội khoa</h4>
+            </div>
+            <div className="doctor-body section-body">
+              <img src={doctorImg} />
+              <h3>Bs.Nguyễn Thị Thu Hà</h3>
+              <h4>Nội khoa</h4>
+            </div>
+            <div className="doctor-body section-body">
+              <img src={doctorImg} />
+              <h3>Bs.Nguyễn Thị Thu Hà</h3>
+              <h4>Nội khoa</h4>
+            </div>
+            <div className="doctor-body section-body">
+              <img src={doctorImg} />
+              <h3>Bs.Nguyễn Thị Thu Hà</h3>
+              <h4>Nội khoa</h4>
+            </div>
+          </Slider>
         </div>
       </div>
     );

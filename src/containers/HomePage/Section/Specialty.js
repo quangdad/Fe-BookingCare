@@ -8,8 +8,11 @@ class Specialty extends Component {
     return (
       <div className="section-container ">
         <div className="specialty-content section-content">
-          <div>
+          <div className="doctor-title section-title">
             <h2>Chuyên khoa phổ biến</h2>
+            <span className="doctor-more section-more">
+              <a>Xem thêm</a>
+            </span>
             <Slider {...this.props.settings}>
               <div className="specialty-body section-body">
                 <img src={specialtImg} />
