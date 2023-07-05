@@ -13,8 +13,9 @@ class Header extends Component {
     this.props.changeLanguageAppRedux(language);
   };
   render() {
-    let language = this.props.language;
     const { processLogout } = this.props;
+    let { language, userInfo } = this.props;
+    console.log("check user info", userInfo);
 
     return (
       <div className="header-container">
@@ -22,52 +23,59 @@ class Header extends Component {
         <div className="header-tabs-container">
           <Navigator menus={adminMenu} />
         </div>
+
         {/* nút logout */}
         <div className="btn btn-logout">
-          <div className="flag">
-            <span>
-              <b>
-                <FormattedMessage id="home-header.language" />
-              </b>
-            </span>
-            <div className="lang-box">
-              <div
-                className={
-                  language === LANGUAGES.VI
-                    ? "language-vi active"
-                    : "language-vi"
-                }
-              >
-                <span
-                  onClick={() => {
-                    this.changLanguage(LANGUAGES.VI);
-                  }}
+          <div id="user-name">
+            <FormattedMessage id="home-header.user-name" />{" "}
+            {userInfo && userInfo ? userInfo.firstName : ""}
+          </div>
+          <div className="btn-content">
+            <div className="flag">
+              <span>
+                <b>
+                  <FormattedMessage id="home-header.language" />
+                </b>
+              </span>
+              <div className="lang-box">
+                <div
+                  className={
+                    language === LANGUAGES.VI
+                      ? "language-vi active"
+                      : "language-vi"
+                  }
                 >
-                  <b>VI</b>
-                </span>
-              </div>
-              <div
-                className={
-                  language === LANGUAGES.EN
-                    ? "language-en active"
-                    : "language-en"
-                }
-              >
-                <span
-                  onClick={() => {
-                    this.changLanguage(LANGUAGES.EN);
-                  }}
+                  <span
+                    onClick={() => {
+                      this.changLanguage(LANGUAGES.VI);
+                    }}
+                  >
+                    <b>VI</b>
+                  </span>
+                </div>
+                <div
+                  className={
+                    language === LANGUAGES.EN
+                      ? "language-en active"
+                      : "language-en"
+                  }
                 >
-                  <b>EN</b>
-                </span>
+                  <span
+                    onClick={() => {
+                      this.changLanguage(LANGUAGES.EN);
+                    }}
+                  >
+                    <b>EN</b>
+                  </span>
+                </div>
               </div>
             </div>
+            <i
+              className="fas fa-sign-out-alt"
+              onClick={processLogout}
+              title="Log out"
+            ></i>
           </div>
-          <i
-            className="fas fa-sign-out-alt"
-            onClick={processLogout}
-            title="Log out"
-          ></i>
         </div>
       </div>
     );
@@ -77,6 +85,7 @@ class Header extends Component {
 const mapStateToProps = (state) => {
   return {
     isLoggedIn: state.user.isLoggedIn,
+    userInfo: state.user.userInfo,
     language: state.app.language,
   };
 };

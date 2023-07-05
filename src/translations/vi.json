@@ -11,19 +11,20 @@
         "support": "Hỗ trợ",
         "language": "VI",
         "banner1": "NỀN TẢNG Y TẾ",
-        "banner2": "CHĂM SÓC THÚ CƯNG TOÀN DIỆN"
+        "banner2": "CHĂM SÓC THÚ CƯNG TOÀN DIỆN",
+        "user-name": "Xin chào, "
     },
     "menu":{
-        "system":{
-            "header": "Hệ thống",
-            "system-administrator":{
-                "header": "Quản lí hệ thống",
-                "user-manage": "Quản lí người dùng",
-                "product-manage": "Quản lí dữ liệu người dùng"
-            }
-            
-        }
+        "admin":{
+            "manage-user": "Người dùng",
+            "manage-doctor": "Quản lí bác sĩ",
+            "manage-admin": "Quản lí quản trị viên",
+            "crud": "Tạo người dùng",
+            "crud-redux": "Tạo người dùng các loại",
+            "clinic": "Phòng khám",
+            "manage-clinic": "Quản lí phòng khám",
+            "specialty":"Chuyên khoa",
+            "manage-specialty": "Quản lí chuyên khoa"
+        } 
     }
-   
-    
 }

@@ -11,18 +11,21 @@
         "support": "Support",
         "language": "EN",
         "banner1": "MEDICAL FOUNDATION",
-        "banner2": "COMPREHENSIVE PET CARE"
+        "banner2": "COMPREHENSIVE PET CARE",
+        "user-name": "Welcome, "
+
     },
     "menu":{
-        "system":{
-            "header": "System",
-            "system-administrator":{
-                "header": "System manage",
-                "user-manage": "User manage",
-                "product-manage": "User redux manage"
-            }
-            
-        }
+        "admin":{
+            "manage-user": "User",
+            "manage-doctor": "Doctor manage",
+            "manage-admin": "Admin manage",
+            "crud": "Create user",
+            "crud-redux": "Create all User ",
+            "clinic": "Clinic",
+            "manage-clinic": "Clinic manage",
+            "specialty": " Specialty",
+            "manage-specialty": " Specialty manage"
+        } 
     }
-   
 }

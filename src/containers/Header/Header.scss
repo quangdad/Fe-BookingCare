@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     background-color: $colormain;
-    color: $common-text-color;
+    color: white;
     height: 40px;
     position: relative;
 
@@ -13,11 +13,16 @@
         color: $common-text-color;
         line-height: 40px;
         height: 40px;
-        padding: 0 10px;
         display: -webkit-box;
 
-        &:hover {
-            background-color: darken($colormain, 5);
+        .btn-content {
+            background-color: $colormain;
+            display: flex;
+            padding: 0 10px;
+
+            &:hover {
+                background-color: darken($colormain, 5);
+            }
         }
 
         i {
@@ -43,7 +48,7 @@
             .lang-box {
                 display: grid;
                 border: 1px solid transparent;
-                background: #0071ba;
+                background: $colormain;
                 border-radius: 2px;
                 visibility: hidden;
                 margin: -1px;
@@ -69,16 +74,13 @@
                         // width: 25px;
 
                         &:hover {
-                            color: rgb(28, 160, 221)
+                            color: rgb(241, 241, 97)
                         }
                     }
                 }
 
                 .language-en {
                     cursor: pointer;
-                    // height: 23px;
-                    // width: 21px;
-                    // opacity: 0.5;
 
                     &.active {
                         // opacity: 1;
@@ -93,7 +95,7 @@
                         height: 21px;
 
                         &:hover {
-                            color: rgb(28, 160, 221)
+                            color: rgb(241, 241, 97)
                         }
                     }
                 }
@@ -103,6 +105,7 @@
         .fas.fa-sign-out-alt {
             padding-top: 13px;
             padding-left: 10px;
+
         }
     }
 }
