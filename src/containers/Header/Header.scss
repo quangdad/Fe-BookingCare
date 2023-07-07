@@ -33,6 +33,7 @@
             cursor: pointer;
             justify-content: center;
             justify-items: center;
+            height: 150%;
 
             // padding-top: 44px;
             span {
@@ -51,7 +52,8 @@
                 background: $colormain;
                 border-radius: 2px;
                 visibility: hidden;
-                margin: -1px;
+                margin-top: -5px;
+                width: 35px;
 
                 span {
                     margin-left: 2px;

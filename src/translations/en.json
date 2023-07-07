@@ -27,5 +27,18 @@
             "specialty": " Specialty",
             "manage-specialty": " Specialty manage"
         } 
+    },
+    "manage-user": {
+        "add": "Thêm mới người dùng",
+        "email": "Email",
+        "password": "Password",
+        "first-name": "First name",
+        "last-name": "Last name",
+        "address": "Address",
+        "phone": "Phone number",
+        "gender": "Gender",
+        "role": "Role",
+        "position": "Position",
+        "avatar": "Avatar"
     }
 }
