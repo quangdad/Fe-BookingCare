@@ -36,8 +36,9 @@
         "address": "Địa chỉ",
         "phone": "Số điện thoại",
         "gender": "Giới tính",
-        "role": "Quyền truy cập",
-        "position": "Vị trí",
-        "avatar": "Ảnh đại diện"
+        "role": "Vai trò",
+        "position": "Chức danh",
+        "avatar": "Ảnh đại diện",
+        "save": "Lưu"
     }
 }
