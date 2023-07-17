@@ -4,6 +4,7 @@ import {
   getAllUsers,
   createNewUserService,
   editUserService,
+  deleteUserService,
 } from "../../services/userService";
 import axios from "axios";
 import { emitter } from "../../utils/emitter";
@@ -108,7 +109,6 @@ export const fetchUser = (userId) => {
   return async (dispatch, getState) => {
     try {
       let res = await getAllUsers(userId);
-      console.log("get one", res);
       if (res && res.data.err === 0) {
         dispatch(fetchUsersSuccess());
       } else {
@@ -156,14 +156,13 @@ export const editUser = (putData) => {
   return async (dispatch, getState) => {
     try {
       let response = await editUserService(putData);
-      if (response && response.data.err !== 0) {
+      if (response && response.data.err == 0) {
         toast.success(" Edit user succeed!");
-        dispatch(editUserFail());
+        dispatch(editUserSuccess());
         dispatch(fetchAllUsers());
         emitter.emit("EVENT_CLEAR_MODAL_INPUT");
       } else {
-        let response = await getAllUsers("ALL");
-        dispatch(editUserSuccess());
+        dispatch(editUserFail());
       }
     } catch (e) {
       dispatch(editUserFail());
@@ -176,4 +175,26 @@ export const editUserSuccess = () => ({
 });
 export const editUserFail = () => ({
   type: actionTypes.CREATE_USER_FAIL,
+});
+export const deleteUser = (userId) => {
+  return async (dispatch, getState) => {
+    try {
+      let response = await deleteUserService(userId);
+      if (response && response.data.err == 0) {
+        toast.success("Delete user succeed!");
+        dispatch(deleteUserSuccess());
+        dispatch(fetchAllUsers());
+      } else {
+        dispatch(deleteUserFail());
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+export const deleteUserSuccess = () => ({
+  type: actionTypes.DELETE_USER_SUCCESS,
+});
+export const deleteUserFail = () => ({
+  type: actionTypes.DELETE_USER_FAIL,
 });

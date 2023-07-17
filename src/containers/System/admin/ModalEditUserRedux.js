@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import _ from "lodash";
 import * as actions from "../../../store/actions";
+import { LANGUAGES } from "../../../utils";
 
 class ModalEditUserRedux extends Component {
   constructor(props) {
@@ -31,9 +32,8 @@ class ModalEditUserRedux extends Component {
     this.props.getGenderStart();
     this.props.getRoleStart();
     this.props.getPositionStart();
-    this.props.fetchUser(this.state);
-    let user = this.props.oneuser;
-    console.log("get", user);
+    // this.props.fetchUser(this.state);
+    let user = this.props.currentUser;
     if (user && !_.isEmpty(user)) {
       this.setState({
         id: user.id,
@@ -56,23 +56,38 @@ class ModalEditUserRedux extends Component {
         arrUsers: this.props.users,
       });
     }
+    if (preProps.genderRedux !== this.props.genderRedux) {
+      let arrGender = this.props.genderRedux.data;
+      this.setState({
+        genderArr: this.props.genderRedux,
+        gender: arrGender && arrGender.length > 0 ? arrGender[0].key : "",
+      });
+    }
+    if (preProps.roleRedux !== this.props.roleRedux) {
+      let arrRole = this.props.roleRedux.data;
+      this.setState({
+        roleArr: this.props.roleRedux,
+        role: arrRole && arrRole.length > 0 ? arrRole[0].key : "",
+      });
+    }
+    if (preProps.positionRedux !== this.props.positionRedux) {
+      let arrPosition = this.props.positionRedux.data;
+      this.setState({
+        positionArr: this.props.positionRedux,
+        position:
+          arrPosition && arrPosition.length > 0 ? arrPosition[0].key : "",
+      });
+    }
   }
   toggle = () => {
     this.props.toggleEditUserFromParent();
   };
   handleOnChangeInput = (event, id) => {
-    // this.state[id] = event.target.value;
     let copystate = { ...this.state };
     copystate[id] = event.target.value;
-    this.setState(
-      {
-        ...copystate,
-      }
-      //   ,
-      //   () => {
-      //     console.log("check state: ", copystate);
-      //   }
-    );
+    this.setState({
+      ...copystate,
+    });
   };
   handleOnChangeImage = (event) => {
     let data = event.target.files;
@@ -112,6 +127,22 @@ class ModalEditUserRedux extends Component {
     }
   };
   render() {
+    let roles = this.state.roleArr.data;
+    let genders = this.state.genderArr.data;
+    let positions = this.state.positionArr.data;
+    let language = this.props.language;
+
+    let {
+      email,
+      passWord,
+      firstName,
+      lastName,
+      address,
+      phoneNumber,
+      gender,
+      role,
+      position,
+    } = this.state;
     return (
       <Modal
         isOpen={this.props.isOpen}
@@ -127,7 +158,7 @@ class ModalEditUserRedux extends Component {
         >
           Edit User
         </ModalHeader>
-        {/* <ModalBody>
+        <ModalBody>
           <div className="modal-user-body">
             <div className="container">
               <div className="row">
@@ -290,7 +321,7 @@ class ModalEditUserRedux extends Component {
               </div>
             </div>
           </div>
-        </ModalBody> */}
+        </ModalBody>
         <ModalFooter>
           <button
             className="btn btn-primary"
@@ -314,16 +345,21 @@ class ModalEditUserRedux extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    oneuser: state.admin.oneuser,
+    language: state.app.language,
+    genderRedux: state.admin.genders,
+    roleRedux: state.admin.roles,
+    positionRedux: state.admin.positions,
+    isLoadingGender: state.admin.isloadingGender,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchUser: (userId) => dispatch(actions.fetchUser(userId)),
+    // fetchUser: (userId) => dispatch(actions.fetchUser(userId)),
     getGenderStart: () => dispatch(actions.fetchGenderStart()),
     getRoleStart: () => dispatch(actions.fetchRoleStart()),
     getPositionStart: () => dispatch(actions.fetchPositionStart()),
+    editUser: (putData) => dispatch(actions.editUser(putData)),
   };
 };
 

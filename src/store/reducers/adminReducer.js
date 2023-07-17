@@ -51,11 +51,6 @@ const adminReducer = (state = initialState, action) => {
       return {
         ...state,
       };
-
-    case actionTypes.FETCH_ALL_USERS_START:
-      return {
-        ...state,
-      };
     case actionTypes.FETCH_ALL_USERS_SUCCESS:
       state.users = action.users;
       return {
@@ -66,16 +61,16 @@ const adminReducer = (state = initialState, action) => {
       return {
         ...state,
       };
-    case actionTypes.FETCH_USERS_SUCCESS:
-      state.oneusers = action.users;
-      return {
-        ...state,
-      };
-    case actionTypes.FETCH_USERS_FAIL:
-      state.oneusers = [];
-      return {
-        ...state,
-      };
+    // case actionTypes.FETCH_USERS_SUCCESS:
+    //   state.oneusers = action.users;
+    //   return {
+    //     ...state,
+    //   };
+    // case actionTypes.FETCH_USERS_FAIL:
+    //   state.oneusers = [];
+    //   return {
+    //     ...state,
+    //   };
     default:
       return state;
   }

@@ -2,12 +2,7 @@ import React, { Component, Fragment } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 import "./TableUserAdmin.scss";
-import {
-  getAllUsers,
-  editUserService,
-  deleteUserService,
-  createNewUserService,
-} from "../../../services/userService";
+import { getAllUsers } from "../../../services/userService";
 import ModelUserRedux from "./ModelUserRedux";
 import ModalEditUserRedux from "./ModalEditUserRedux";
 import { emitter } from "../../../utils/emitter";
@@ -33,7 +28,6 @@ class TableUserAdmin extends Component {
     });
   }
   handleEditUser(data) {
-    console.log("data", data);
     this.setState({
       isOpenModalEditUser: true,
       editUserData: data,
@@ -49,20 +43,8 @@ class TableUserAdmin extends Component {
       isOpenModalEditUser: !this.state.isOpenModalEditUser,
     });
   };
-  deleteUser = async (user) => {
-    try {
-      let response = await deleteUserService(user.id);
-      if (response && response.data.err === 0) {
-        let getUser = await getAllUsers("ALL");
-        this.setState({
-          arrUsers: getUser.data.user,
-        });
-      } else {
-        alert(response.data.mes);
-      }
-    } catch (e) {
-      console.log(e);
-    }
+  handelDeleteUser = async (user) => {
+    this.props.deleteUser(user.id);
   };
 
   componentDidUpdate(preProps, preState, snapshot) {
@@ -124,7 +106,7 @@ class TableUserAdmin extends Component {
                           <i
                             className="fas fa-trash"
                             onClick={() => {
-                              this.deleteUser(item);
+                              this.handelDeleteUser(item);
                             }}
                           ></i>
                         </button>
@@ -155,7 +137,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchAllUsers: () => dispatch(actions.fetchAllUsers()),
-    editUser: () => dispatch(actions.editUser()),
+    deleteUser: (userId) => dispatch(actions.deleteUser(userId)),
   };
 };
 
