@@ -20,7 +20,7 @@
             "manage-doctor": "Quản lí bác sĩ",
             "manage-admin": "Quản lí quản trị viên",
             "crud": "Tạo người dùng",
-            "crud-redux": "Tạo người dùng các loại",
+            "crud-redux": "Tạo người dùng 2",
             "clinic": "Phòng khám",
             "manage-clinic": "Quản lí phòng khám",
             "specialty":"Chuyên khoa",
@@ -39,6 +39,7 @@
         "role": "Vai trò",
         "position": "Chức danh",
         "avatar": "Ảnh đại diện",
-        "save": "Lưu"
+        "save": "Lưu",
+        "cancel": "Thoát"
     }
 }

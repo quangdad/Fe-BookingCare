@@ -1,18 +1,19 @@
 import React, { Component, Fragment } from "react";
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
-import "./UserManage.scss";
+import "./TableUserAdmin.scss";
 import {
   getAllUsers,
   editUserService,
   deleteUserService,
   createNewUserService,
-} from "../../services/userService";
-import ModalUser from "./ModalUser";
-import ModalEditUser from "./ModalEditUser";
-import { emitter } from "../../utils/emitter";
+} from "../../../services/userService";
+import ModelUserRedux from "./ModelUserRedux";
+import ModalEditUserRedux from "./ModalEditUserRedux";
+import { emitter } from "../../../utils/emitter";
+import * as actions from "../../../store/actions";
 
-class UserManage extends Component {
+class TableUserAdmin extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,22 +25,18 @@ class UserManage extends Component {
   }
 
   async componentDidMount() {
-    let response = await getAllUsers("ALL");
-    if (response && response.data.err === 0) {
-      this.setState({
-        arrUsers: response.data.user,
-      });
-    }
+    this.props.fetchAllUsers();
   }
   handleAddNewUser() {
     this.setState({
       isOpenModalUser: true,
     });
   }
-  handleEditUser(user) {
+  handleEditUser(data) {
+    console.log("data", data);
     this.setState({
       isOpenModalEditUser: true,
-      editUserData: user,
+      editUserData: data,
     });
   }
   toggleUserModal = () => {
@@ -51,25 +48,6 @@ class UserManage extends Component {
     this.setState({
       isOpenModalEditUser: !this.state.isOpenModalEditUser,
     });
-  };
-  createNewUser = async (data) => {
-    try {
-      let response = await createNewUserService(data);
-      console.log("res", response);
-      if (response && response.data.err !== 0) {
-        alert(response.mes);
-      } else {
-        let response = await getAllUsers("ALL");
-        console.log("create user : ", response);
-        this.setState({
-          isOpenModalUser: false,
-          arrUsers: response.data.user,
-        });
-        emitter.emit("EVENT_CLEAR_MODAL_INPUT");
-      }
-    } catch (e) {
-      console.log(e);
-    }
   };
   deleteUser = async (user) => {
     try {
@@ -86,45 +64,33 @@ class UserManage extends Component {
       console.log(e);
     }
   };
-  editUser = async (putData) => {
-    let response = await editUserService(putData);
-    if (response && response.data.err !== 0) {
-      alert(response.data.mes);
-    } else {
-      let response = await getAllUsers("ALL");
+
+  componentDidUpdate(preProps, preState, snapshot) {
+    if (preProps.users !== this.props.users) {
       this.setState({
-        isOpenModalEditUser: false,
-        arrUsers: response.data.user,
+        arrUsers: this.props.users,
       });
     }
-  };
+  }
 
   render() {
     let arrUsers = this.state.arrUsers;
     return (
       <div className="users-container">
-        <ModalUser
+        <ModelUserRedux
           isOpen={this.state.isOpenModalUser}
           toggleUserFromParent={this.toggleUserModal}
           createNewUser={this.createNewUser}
         />
         {this.state.isOpenModalEditUser && (
-          <ModalEditUser
+          <ModalEditUserRedux
             isOpen={this.state.isOpenModalEditUser}
             toggleEditUserFromParent={this.toggleEditUserModal}
             currentUser={this.state.editUserData}
             editUser={this.editUser}
           />
         )}
-        <div className="title">Manage users </div>
-        <div className="mx-2">
-          <button
-            className="btn btn-primary px-2"
-            onClick={() => this.handleAddNewUser()}
-          >
-            <i className="fas fa-plus"></i>Add new user
-          </button>
-        </div>
+        <div className="mx-2"></div>
         <div className="user-table mt-4 mx-2">
           <table>
             <tbody>
@@ -134,8 +100,6 @@ class UserManage extends Component {
                 <th>Last name</th>
                 <th>Address</th>
                 <th>Phone number</th>
-                <th>Gender</th>
-                <th>Role</th>
                 <th>Action</th>
               </tr>
               {arrUsers && arrUsers.length > 0 ? (
@@ -147,8 +111,6 @@ class UserManage extends Component {
                       <td>{item.lastName}</td>
                       <td>{item.address}</td>
                       <td>{item.phonenumber}</td>
-                      <td>{item.gender}</td>
-                      <td>{item.roleID}</td>
                       <td className="td-btn">
                         <button className="btn-edit">
                           <i
@@ -184,11 +146,17 @@ class UserManage extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    language: state.app.language,
+    users: state.admin.users,
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
-  return {};
+  return {
+    fetchAllUsers: () => dispatch(actions.fetchAllUsers()),
+    editUser: () => dispatch(actions.editUser()),
+  };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserManage);
+export default connect(mapStateToProps, mapDispatchToProps)(TableUserAdmin);

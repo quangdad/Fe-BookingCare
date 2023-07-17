@@ -40,6 +40,7 @@
         "role": "Role",
         "position": "Position",
         "avatar": "Avatar",
-        "save": "Save"
+        "save": "Save",
+        "cancel": "Cancel"
     }
 }

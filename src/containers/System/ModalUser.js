@@ -94,7 +94,7 @@ class ModalUser extends Component {
             this.toggle();
           }}
         >
-          Edit User
+          Create User
         </ModalHeader>
         <ModalBody>
           <div className="modal-user-body">

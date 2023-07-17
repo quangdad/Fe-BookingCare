@@ -36,13 +36,14 @@ class Login extends Component {
     });
     try {
       let data = await handleLoginApi(this.state.usename, this.state.password);
-      if (data && data.err !== 0) {
+      console.log("data", data.data);
+      if (data && data.data.err !== 0) {
         this.setState({
-          errMessage: data.mes,
+          errMessage: data.data.mes,
         });
       }
-      if (data && data.err === 0) {
-        this.props.userLoginSuccess(data.user);
+      if (data && data.data.err === 0) {
+        this.props.userLoginSuccess(data.data.user);
         console.log("Login succeed!");
       }
       // userLoginFail;

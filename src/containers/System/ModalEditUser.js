@@ -35,7 +35,7 @@ class ModalEditUser extends Component {
   }
 
   toggle = () => {
-    this.props.toggleUserFromParent();
+    this.props.toggleEditUserFromParent();
   };
   handleOnChangeInput = (event, id) => {
     // this.state[id] = event.target.value;
@@ -91,7 +91,7 @@ class ModalEditUser extends Component {
             this.toggle();
           }}
         >
-          Modal title
+          Edit User
         </ModalHeader>
         <ModalBody>
           <div className="modal-user-body">
