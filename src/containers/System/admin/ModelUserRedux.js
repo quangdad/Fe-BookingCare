@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { emitter } from "../../../utils/emitter";
 import * as actions from "../../../store/actions";
-import { LANGUAGES } from "../../../utils";
+import { LANGUAGES, CommonUtils } from "../../../utils";
 
 class ModalUser extends Component {
   constructor(props) {
@@ -91,14 +91,13 @@ class ModalUser extends Component {
       // }
     );
   };
-  handleOnChangeImage = (event) => {
+  handleOnChangeImage = async (event) => {
     let data = event.target.files;
     let file = data[0];
     if (file) {
-      let objectUrl = URL.createObjectURL(file);
+      let base64 = await CommonUtils.getBase64(file);
       this.setState({
-        previewImgURL: objectUrl,
-        avatar: file,
+        avatar: base64,
       });
     }
   };
@@ -127,6 +126,7 @@ class ModalUser extends Component {
     let isValid = this.checkValideInput();
     if (isValid == true) {
       this.props.createNewUser(this.state);
+      this.props.createUserToggle();
     }
   };
   render() {

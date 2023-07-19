@@ -29,7 +29,7 @@ class ModalEditUser extends Component {
         firstName: user.firstName,
         lastName: user.lastName,
         address: user.address,
-        phoneNumber: user.phonenumber,
+        phonenumber: user.phonenumber,
       });
     }
   }
@@ -41,15 +41,9 @@ class ModalEditUser extends Component {
     // this.state[id] = event.target.value;
     let copystate = { ...this.state };
     copystate[id] = event.target.value;
-    this.setState(
-      {
-        ...copystate,
-      }
-      //   ,
-      //   () => {
-      //     console.log("check state: ", copystate);
-      //   }
-    );
+    this.setState({
+      ...copystate,
+    });
   };
   checkValideInput = () => {
     let isValid = true;

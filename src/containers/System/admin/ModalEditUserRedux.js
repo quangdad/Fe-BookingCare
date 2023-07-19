@@ -11,6 +11,7 @@ class ModalEditUserRedux extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isOpenModalEditUser: false,
       genderArr: [],
       positionArr: [],
       roleArr: [],
@@ -33,6 +34,12 @@ class ModalEditUserRedux extends Component {
     this.props.getRoleStart();
     this.props.getPositionStart();
     // this.props.fetchUser(this.state);
+    this.setState({
+      arrUsers: this.props.users,
+      genderArr: this.props.genderRedux,
+      roleArr: this.props.roleRedux,
+      positionArr: this.props.positionRedux,
+    });
     let user = this.props.currentUser;
     if (user && !_.isEmpty(user)) {
       this.setState({
@@ -44,41 +51,12 @@ class ModalEditUserRedux extends Component {
         address: user.address,
         phonenumber: user.phonenumber,
         gender: user.gender,
-        roleId: user.roleId,
+        roleId: user.roleID,
         positionId: user.positionId,
       });
     }
   }
 
-  componentDidUpdate(preProps, preState, snapshot) {
-    if (preProps.users !== this.props.users) {
-      this.setState({
-        arrUsers: this.props.users,
-      });
-    }
-    if (preProps.genderRedux !== this.props.genderRedux) {
-      let arrGender = this.props.genderRedux.data;
-      this.setState({
-        genderArr: this.props.genderRedux,
-        gender: arrGender && arrGender.length > 0 ? arrGender[0].key : "",
-      });
-    }
-    if (preProps.roleRedux !== this.props.roleRedux) {
-      let arrRole = this.props.roleRedux.data;
-      this.setState({
-        roleArr: this.props.roleRedux,
-        role: arrRole && arrRole.length > 0 ? arrRole[0].key : "",
-      });
-    }
-    if (preProps.positionRedux !== this.props.positionRedux) {
-      let arrPosition = this.props.positionRedux.data;
-      this.setState({
-        positionArr: this.props.positionRedux,
-        position:
-          arrPosition && arrPosition.length > 0 ? arrPosition[0].key : "",
-      });
-    }
-  }
   toggle = () => {
     this.props.toggleEditUserFromParent();
   };
@@ -124,6 +102,7 @@ class ModalEditUserRedux extends Component {
     let isValid = this.checkValideInput();
     if (isValid == true) {
       this.props.editUser(this.state);
+      this.props.editUserToggle();
     }
   };
   render() {
@@ -140,8 +119,8 @@ class ModalEditUserRedux extends Component {
       address,
       phoneNumber,
       gender,
-      role,
-      position,
+      roleId,
+      positionId,
     } = this.state;
     return (
       <Modal
@@ -261,9 +240,9 @@ class ModalEditUserRedux extends Component {
                     <label className="form-label">Position</label>
                     <select
                       className="form-select"
-                      value={position}
+                      value={positionId}
                       onChange={(event) => {
-                        this.handleOnChangeInput(event, "position");
+                        this.handleOnChangeInput(event, "positionId");
                       }}
                     >
                       {positions && positions.length > 0
@@ -284,9 +263,9 @@ class ModalEditUserRedux extends Component {
                     <select
                       name="role"
                       className="form-select"
-                      value={role}
+                      value={roleId}
                       onChange={(event) => {
-                        this.handleOnChangeInput(event, "role");
+                        this.handleOnChangeInput(event, "roleId");
                       }}
                     >
                       {roles && roles.length > 0

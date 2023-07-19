@@ -160,7 +160,6 @@ export const editUser = (putData) => {
         toast.success(" Edit user succeed!");
         dispatch(editUserSuccess());
         dispatch(fetchAllUsers());
-        emitter.emit("EVENT_CLEAR_MODAL_INPUT");
       } else {
         dispatch(editUserFail());
       }
