@@ -5,6 +5,8 @@ import {
   createNewUserService,
   editUserService,
   deleteUserService,
+  getDoctorHomeService,
+  getAllDoctor,
 } from "../../services/userService";
 import axios from "axios";
 import { emitter } from "../../utils/emitter";
@@ -197,3 +199,43 @@ export const deleteUserSuccess = () => ({
 export const deleteUserFail = () => ({
   type: actionTypes.DELETE_USER_FAIL,
 });
+
+export const fetchTopDoctor = () => {
+  return async (dispatch, getState) => {
+    try {
+      let response = await getDoctorHomeService(5);
+      if (response && response.data.err == 0) {
+        dispatch({
+          type: actionTypes.FETCH_TOP_DOCTOR_SUCCESS,
+          dataDoctor: response.data,
+        });
+      } else {
+        dispatch({
+          type: actionTypes.FETCH_TOP_DOCTOR_FAIL,
+        });
+      }
+    } catch (e) {
+      console.log("FETCH_TOP_DOCTOR_FAIL", e);
+    }
+  };
+};
+
+export const fetchAllDoctor = () => {
+  return async (dispatch, getState) => {
+    try {
+      let response = await getAllDoctor();
+      if (response && response.data.err == 0) {
+        dispatch({
+          type: actionTypes.FETCH_ALL_DOCTOR_SUCCESS,
+          allDoctor: response.data,
+        });
+      } else {
+        dispatch({
+          type: actionTypes.FETCH_ALL_DOCTOR_FAIL,
+        });
+      }
+    } catch (e) {
+      console.log("FETCH_ALL_DOCTOR_FAIL", e);
+    }
+  };
+};

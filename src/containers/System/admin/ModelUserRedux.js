@@ -55,14 +55,14 @@ class ModalUser extends Component {
       let arrGender = this.props.genderRedux.data;
       this.setState({
         genderArr: this.props.genderRedux,
-        gender: arrGender && arrGender.length > 0 ? arrGender[0].key : "",
+        gender: arrGender && arrGender.length > 0 ? arrGender[0].keyMap : "",
       });
     }
     if (preProps.roleRedux !== this.props.roleRedux) {
       let arrRole = this.props.roleRedux.data;
       this.setState({
         roleArr: this.props.roleRedux,
-        role: arrRole && arrRole.length > 0 ? arrRole[0].key : "",
+        role: arrRole && arrRole.length > 0 ? arrRole[0].keyMap : "",
       });
     }
     if (preProps.positionRedux !== this.props.positionRedux) {
@@ -70,7 +70,7 @@ class ModalUser extends Component {
       this.setState({
         positionArr: this.props.positionRedux,
         position:
-          arrPosition && arrPosition.length > 0 ? arrPosition[0].key : "",
+          arrPosition && arrPosition.length > 0 ? arrPosition[0].keyMap : "",
       });
     }
   }
@@ -136,17 +136,7 @@ class ModalUser extends Component {
     let language = this.props.language;
     let isGetGenders = this.props;
 
-    let {
-      email,
-      passWord,
-      firstName,
-      lastName,
-      address,
-      phoneNumber,
-      gender,
-      role,
-      position,
-    } = this.state;
+    let { gender, role, position } = this.state;
     return (
       <Modal
         isOpen={this.props.isOpen}
@@ -251,7 +241,7 @@ class ModalUser extends Component {
                       {genders && genders.length > 0
                         ? genders.map((item, index) => {
                             return (
-                              <option key={index} value={item.key}>
+                              <option key={index} value={item.keyMap}>
                                 {language === LANGUAGES.VI
                                   ? item.valueVI
                                   : item.valueEN}
@@ -273,7 +263,7 @@ class ModalUser extends Component {
                       {positions && positions.length > 0
                         ? positions.map((item, index) => {
                             return (
-                              <option key={index} value={item.key}>
+                              <option key={index} value={item.keyMap}>
                                 {language === LANGUAGES.VI
                                   ? item.valueVI
                                   : item.valueEN}
@@ -296,7 +286,7 @@ class ModalUser extends Component {
                       {roles && roles.length > 0
                         ? roles.map((item, index) => {
                             return (
-                              <option key={index} value={item.key}>
+                              <option key={index} value={item.keyMap}>
                                 {language === LANGUAGES.VI
                                   ? item.valueVI
                                   : item.valueEN}

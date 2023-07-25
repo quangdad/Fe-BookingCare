@@ -27,7 +27,7 @@ class Header extends Component {
         <div className="btn btn-logout">
           <div id="user-name">
             <FormattedMessage id="home-header.user-name" />{" "}
-            {userInfo && userInfo ? userInfo.firstName : ""}
+            {userInfo && userInfo ? userInfo.lastName : ""}
           </div>
           <div className="btn-content">
             <div className="flag">

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import _ from "lodash";
 import * as actions from "../../../store/actions";
-import { LANGUAGES } from "../../../utils";
+import { LANGUAGES, CommonUtils } from "../../../utils";
 
 class ModalEditUserRedux extends Component {
   constructor(props) {
@@ -41,6 +41,10 @@ class ModalEditUserRedux extends Component {
       positionArr: this.props.positionRedux,
     });
     let user = this.props.currentUser;
+    let imageBase64 = "";
+    if (user.image) {
+      imageBase64 = new Buffer(user.image, "base64").toString("binary");
+    }
     if (user && !_.isEmpty(user)) {
       this.setState({
         id: user.id,
@@ -53,6 +57,8 @@ class ModalEditUserRedux extends Component {
         gender: user.gender,
         roleId: user.roleID,
         positionId: user.positionId,
+        avatar: "",
+        previewImgURL: imageBase64,
       });
     }
   }
@@ -67,14 +73,13 @@ class ModalEditUserRedux extends Component {
       ...copystate,
     });
   };
-  handleOnChangeImage = (event) => {
+  handleOnChangeImage = async (event) => {
     let data = event.target.files;
     let file = data[0];
     if (file) {
-      let objectUrl = URL.createObjectURL(file);
+      let base64 = await CommonUtils.getBase64(file);
       this.setState({
-        previewImgURL: objectUrl,
-        avatar: file,
+        avatar: base64,
       });
     }
   };
@@ -138,7 +143,7 @@ class ModalEditUserRedux extends Component {
           Edit User
         </ModalHeader>
         <ModalBody>
-          <div className="modal-user-body">
+          <div className="modal-edit-user-body">
             <div className="container">
               <div className="row">
                 <form className="row g-3 needs-validation" noValidate>
@@ -226,7 +231,7 @@ class ModalEditUserRedux extends Component {
                       {genders && genders.length > 0
                         ? genders.map((item, index) => {
                             return (
-                              <option key={index} value={item.key}>
+                              <option key={index} value={item.keyMap}>
                                 {language === LANGUAGES.VI
                                   ? item.valueVI
                                   : item.valueEN}
@@ -248,7 +253,7 @@ class ModalEditUserRedux extends Component {
                       {positions && positions.length > 0
                         ? positions.map((item, index) => {
                             return (
-                              <option key={index} value={item.key}>
+                              <option key={index} value={item.keyMap}>
                                 {language === LANGUAGES.VI
                                   ? item.valueVI
                                   : item.valueEN}
@@ -271,7 +276,7 @@ class ModalEditUserRedux extends Component {
                       {roles && roles.length > 0
                         ? roles.map((item, index) => {
                             return (
-                              <option key={index} value={item.key}>
+                              <option key={index} value={item.keyMap}>
                                 {language === LANGUAGES.VI
                                   ? item.valueVI
                                   : item.valueEN}

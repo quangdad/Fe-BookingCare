@@ -12,16 +12,22 @@
         "language": "EN",
         "banner1": "MEDICAL FOUNDATION",
         "banner2": "COMPREHENSIVE PET CARE",
-        "user-name": "Welcome, "
+        "user-name": "Welcome"
 
     },
     "menu":{
         "admin":{
             "manage-user": "User",
-            "manage-doctor": "Doctor manage",
+            "user-manage": "User manage",
             "manage-admin": "Admin manage",
-            "crud": "Create user",
-            "crud-redux": "Create all User ",
+            "manage-doctor": {
+                "menu": "Doctor manage",
+                "title": "Create more infomation",
+                "markdown-button": "Save",
+                "select": "Choose the doctor",
+                "description": "Description"
+            } ,
+            "crud-redux": "Create User ",
             "clinic": "Clinic",
             "manage-clinic": "Clinic manage",
             "specialty": " Specialty",
@@ -42,5 +48,9 @@
         "avatar": "Avatar",
         "save": "Save",
         "cancel": "Cancel"
+    },
+    "homepage": {
+        "title": "Outstanding doctor",
+        "more": "More"
     }
 }

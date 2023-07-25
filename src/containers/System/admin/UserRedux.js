@@ -113,9 +113,6 @@ class UserRedux extends Component {
                 <th>Last name</th>
                 <th>Address</th>
                 <th>Phone number</th>
-                <th>Gender</th>
-                <th>Position</th>
-                <th>Role</th>
                 <th>Action</th>
               </tr>
               {arrUsers && arrUsers.length > 0 ? (
@@ -127,9 +124,6 @@ class UserRedux extends Component {
                       <td>{item.lastName}</td>
                       <td>{item.address}</td>
                       <td>{item.phonenumber}</td>
-                      <td>{item.gender}</td>
-                      <td>{item.positionId}</td>
-                      <td>{item.roleID}</td>
                       <td className="td-btn">
                         <button className="btn-edit">
                           <i

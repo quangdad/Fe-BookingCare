@@ -17,10 +17,16 @@
     "menu":{
         "admin":{
             "manage-user": "Người dùng",
-            "manage-doctor": "Quản lí bác sĩ",
+            "user-manage": "Quản lí Người dùng",
+            "manage-doctor": {
+                "menu": "Quản lí bác sĩ",
+                "title": "Tạo thêm thông tin bác sĩ",
+                "markdown-button": "Lưu",
+                "select": "Chọn bác sĩ",
+                "description": "Thông tin mô tả"
+            } ,            
             "manage-admin": "Quản lí quản trị viên",
-            "crud": "Tạo người dùng",
-            "crud-redux": "Tạo người dùng 2",
+            "crud-redux": "Tạo người dùng",
             "clinic": "Phòng khám",
             "manage-clinic": "Quản lí phòng khám",
             "specialty":"Chuyên khoa",
@@ -41,5 +47,10 @@
         "avatar": "Ảnh đại diện",
         "save": "Lưu",
         "cancel": "Thoát"
+    },
+    "homepage": {
+        "title": "Bác sĩ nổi bật",
+        "more": "Xem thêm"
     }
+    
 }
