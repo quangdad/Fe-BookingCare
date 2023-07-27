@@ -7,6 +7,7 @@ import {
   deleteUserService,
   getDoctorHomeService,
   getAllDoctor,
+  saveDetailDoctor,
 } from "../../services/userService";
 import axios from "axios";
 import { emitter } from "../../utils/emitter";
@@ -236,6 +237,28 @@ export const fetchAllDoctor = () => {
       }
     } catch (e) {
       console.log("FETCH_ALL_DOCTOR_FAIL", e);
+    }
+  };
+};
+
+export const saveDetailDoctorService = (data) => {
+  return async (dispatch, getState) => {
+    try {
+      let response = await saveDetailDoctor(data);
+      console.log("data", response.data.err);
+      if (response && response.data.err == 0) {
+        toast.success("Create a new user succeed!");
+        dispatch({
+          type: actionTypes.SAVE_DOCTOR_DETAIL_SUCCESS,
+        });
+      } else {
+        toast.error("Create a new user fail!");
+        dispatch({
+          type: actionTypes.SAVE_DOCTOR_DETAIL_FAIL,
+        });
+      }
+    } catch (e) {
+      console.log("SAVE_DOCTOR_DETAIL_FAIL", e);
     }
   };
 };

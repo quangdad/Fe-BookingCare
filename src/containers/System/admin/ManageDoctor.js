@@ -21,6 +21,7 @@ class ManageDoctor extends Component {
       selectedOption: "",
       description: "",
       allDoctorArr: [],
+      doctorId: "",
     };
   }
   componentDidMount() {
@@ -48,12 +49,17 @@ class ManageDoctor extends Component {
       contentHTML: html,
     });
   };
-  handleSaveManageDoctor = () => {
-    console.log("save", this.state);
+  handleSaveManageDoctor = (data) => {
+    console.log("save", data);
+    this.props.saveDetailDoctorService(data);
   };
-  handleChange = (selectedOption) => {
-    this.setState({ selectedOption }, () =>
-      console.log(`Option selected:`, this.state.selectedOption)
+  handleChange = (selectedOption, doctorId) => {
+    this.setState(
+      {
+        selectedOption,
+        doctorId: selectedOption.value,
+      },
+      () => console.log(`Option selected:`, this.state.doctorId)
     );
   };
   handleOnchangeDesc = (event) => {
@@ -65,10 +71,17 @@ class ManageDoctor extends Component {
   componentDidUpdate(preProps) {
     if (preProps.allDoctor !== this.props.allDoctor) {
       let arrAllDoctor = this.buildDataSelect(this.props.allDoctor.data);
-      console.log("arr", arrAllDoctor);
       this.setState({
         allDoctorArr: arrAllDoctor,
       });
+    }
+    if (preProps.language !== this.props.language) {
+      let arrAllDoctor = this.buildDataSelect(this.props.allDoctor.data);
+      this.setState({
+        allDoctorArr: arrAllDoctor,
+        selectedOption: this.state.selectedOption,
+      });
+      console.log("select option", this.state.selectedOption);
     }
   }
   render() {
@@ -108,7 +121,7 @@ class ManageDoctor extends Component {
         <button
           className="markdown-button btn btn-primary"
           type="button"
-          onClick={() => this.handleSaveManageDoctor()}
+          onClick={() => this.handleSaveManageDoctor(this.state)}
         >
           <FormattedMessage id="menu.admin.manage-doctor.markdown-button" />
         </button>
@@ -126,6 +139,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     loadAllDoctor: () => dispatch(actions.fetchAllDoctor()),
+    saveDetailDoctorService: (data) =>
+      dispatch(actions.saveDetailDoctorService(data)),
   };
 };
 

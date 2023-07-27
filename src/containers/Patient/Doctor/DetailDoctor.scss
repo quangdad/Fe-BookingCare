@@ -1,0 +1,38 @@
+body {
+    .detai-doctor-container {
+        margin: 0 100px;
+        height: 700px;
+
+        .detai-doctor-intro {
+            height: 25%;
+            display: flex;
+            position: relative;
+            margin: 20px 0;
+
+            .content-left {
+                width: 150px;
+                height: 150px;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                border-radius: 50%;
+            }
+
+            .content-right {
+                padding: 0 15px;
+                width: 50%;
+
+                .content-up {
+                    height: fit-content;
+
+                    h1 {
+                        font-size: 27px;
+                        font-weight: bold;
+                    }
+                }
+
+                .content-down {}
+            }
+        }
+    }
+}

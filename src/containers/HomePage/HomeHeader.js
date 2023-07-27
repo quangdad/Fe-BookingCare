@@ -6,18 +6,38 @@ import { LANGUAGES } from "../../utils";
 import { changeLanguageApp } from "../../store/actions/appActions";
 
 class HomeHeader extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      background: "",
+      color: "",
+      customStyle: {},
+    };
+  }
+  componentDidMount() {
+    if (this.props.isShowBanner == false) {
+      this.setState({
+        background: `#45c3d2`,
+        color: `aliceblue`,
+      });
+    }
+  }
   changLanguage = (language) => {
     this.props.changeLanguageAppRedux(language);
   };
   render() {
+    let { background, color } = this.state;
     let language = this.props.language;
     return (
       <Fragment>
-        <div className="home-header-container">
+        <div
+          className="home-header-container"
+          style={{ background: background, color: color }}
+        >
           <div className="home-header-content">
             <div className="left-content">
               <i className="fas fa-bars"></i>
-              <div className="header-logo"></div>
+              {/* <div className="header-logo"></div> */}
             </div>
             <div className="center-content">
               <div className="child-content">
@@ -110,23 +130,25 @@ class HomeHeader extends Component {
             </div>
           </div>
         </div>
-        <div className="home-header-banner">
-          <div className="content-up">
-            <div className="banner-part-1">
-              <FormattedMessage id="home-header.banner1" />
+        {this.props.isShowBanner == true && (
+          <div className="home-header-banner">
+            <div className="content-up">
+              <div className="banner-part-1">
+                <FormattedMessage id="home-header.banner1" />
+              </div>
+              <div className="banner-part-2">
+                <b>
+                  <FormattedMessage id="home-header.banner2" />
+                </b>
+              </div>
+              <div className="search">
+                <i className="fas fa-search"></i>
+                <input type="text" placeholder="Tìm kiếm" />
+              </div>
             </div>
-            <div className="banner-part-2">
-              <b>
-                <FormattedMessage id="home-header.banner2" />
-              </b>
-            </div>
-            <div className="search">
-              <i className="fas fa-search"></i>
-              <input type="text" placeholder="Tìm kiếm" />
-            </div>
+            <div className="content-down"></div>
           </div>
-          <div className="content-down"></div>
-        </div>
+        )}
       </Fragment>
     );
   }

@@ -1,134 +1,138 @@
 ////////section === section/////////
 body {
     font: 14px/1.5 'Montserrat', sans-serif;
-}
 
-.section-content {
-    background-color: #fff;
-    padding-top: 15px;
-    width: 1170px;
-    margin: auto;
-    font: 'Montserrat', sans-serif;
-
+    .section-content {
+        background-color: #fff;
+        padding-top: 15px;
+        width: 1170px;
+        margin: auto;
+        font: 'Montserrat', sans-serif;
 
 
-    .section-title {
-        display: inline-block;
-        padding: 2px;
-        display: block;
-        align-items: center;
-        position: relative;
 
-
-        .section-more {
-            background: #ebebeb;
-            text-transform: uppercase;
+        .section-title {
             display: inline-block;
-            color: #282e41;
-            position: absolute;
-            right: 0;
-            top: 23px;
-            font-size: 12px;
-            cursor: pointer;
+            padding: 2px;
+            display: block;
+            align-items: center;
+            position: relative;
 
-            &:hover {
-                a {
-                    background: #FFC419
-                }
-            }
 
-            a {
+            .section-more {
                 background: #ebebeb;
                 text-transform: uppercase;
                 display: inline-block;
-                padding: 10px 15px;
                 color: #282e41;
-            }
-        }
-
-        h2 {
-            margin-top: revert-layer;
-        }
-    }
-
-    .slick-slider {
-        display: block;
-        height: 200px;
-        align-items: center;
-        position: relative;
-        height: 115%;
-
-        .section-body {
-            margin: 25px;
-            text-align: center;
-            width: 100%;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-color: #eee;
-
-
-            h4,
-            .h4 {
+                position: absolute;
+                right: 0;
+                top: 23px;
                 font-size: 12px;
-                color: #555;
-            }
-
-            h3,
-            .h3 {
-                font-size: 14px;
-                white-space: pre-wrap;
+                cursor: pointer;
 
                 &:hover {
-                    color: #45c3d2;
+                    a {
+                        background: #FFC419
+                    }
+                }
+
+                a {
+                    background: #ebebeb;
+                    text-transform: uppercase;
+                    display: inline-block;
+                    padding: 10px 15px;
+                    color: #282e41;
                 }
             }
-        }
 
-        .doctor-body {
-            img {
-                width: 150px;
-                height: 150px;
-                border-radius: 50%;
-                position: relative;
-                overflow: hidden;
-                margin: 0px auto;
+            h2 {
+                margin-top: revert-layer;
             }
         }
 
-        div {
-            height: 100%;
-        }
-
-        .slick-prev {
-            left: 0 !important;
-        }
-
-        .slick-next {
-            right: 0 !important;
-        }
-
-        .slick-arrow {
-            z-index: 999 !important;
-            top: 50% !important;
-        }
-
-        .slick-prev,
-        .slick-next {
-            font-size: 0;
-            line-height: 0;
-            position: absolute;
-            top: 40%;
+        .slick-slider {
             display: block;
-            width: 20px;
-            height: 20px;
-            padding: 0;
-            cursor: pointer;
-            color: transparent;
-            border: none;
-            outline: none;
-            background: transparent;
-        }
+            height: 200px;
+            align-items: center;
+            position: relative;
+            height: 115%;
 
+            .section-body {
+                margin: 25px;
+                text-align: center;
+                width: 100%;
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-color: #eee;
+
+
+                h4,
+                .h4 {
+                    font-size: 12px;
+                    color: #555;
+                }
+
+                h3,
+                .h3 {
+                    font-size: 14px;
+                    white-space: pre-wrap;
+
+                    &:hover {
+                        color: #45c3d2;
+                    }
+                }
+
+                .section-item {
+                    cursor: pointer;
+                }
+            }
+
+            .doctor-body {
+                img {
+                    width: 150px;
+                    height: 150px;
+                    border-radius: 50%;
+                    position: relative;
+                    overflow: hidden;
+                    margin: 0px auto;
+                }
+            }
+
+            div {
+                height: 100%;
+            }
+
+            .slick-prev {
+                left: 0 !important;
+            }
+
+            .slick-next {
+                right: 0 !important;
+            }
+
+            .slick-arrow {
+                z-index: 999 !important;
+                top: 50% !important;
+            }
+
+            .slick-prev,
+            .slick-next {
+                font-size: 0;
+                line-height: 0;
+                position: absolute;
+                top: 40%;
+                display: block;
+                width: 20px;
+                height: 20px;
+                padding: 0;
+                cursor: pointer;
+                color: transparent;
+                border: none;
+                outline: none;
+                background: transparent;
+            }
+
+        }
     }
 }

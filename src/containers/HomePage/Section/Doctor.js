@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import * as actions from "../../../store/actions";
 import { LANGUAGES } from "../../../utils";
 import { FormattedMessage } from "react-intl";
-
+import { withRouter } from "react-router";
 class Doctor extends Component {
   constructor(props) {
     super(props);
@@ -22,11 +22,14 @@ class Doctor extends Component {
       });
     }
   }
+  handleDoctorDetail = (data) => {
+    this.props.history.push(`/detail-doctor/${data.id}`);
+  };
   render() {
     let arrDoctors = this.state.arrDoctors.data;
     let { language } = this.props;
     return (
-      <div className="doctor-container section-container ">
+      <div className="doctor-container section-container">
         <div className="doctor-content section-content">
           <div className="doctor-title section-title">
             <h2>
@@ -52,7 +55,10 @@ class Doctor extends Component {
                 let nameEn = `${item.positionData.valueEn}, ${item.firstName} ${item.lastName}`;
                 return (
                   <div className="doctor-body section-body" key={index}>
-                    <div className="section-item">
+                    <div
+                      className="section-item"
+                      onClick={() => this.handleDoctorDetail(item)}
+                    >
                       <img src={imageBase64} />
                       <h3>{language === LANGUAGES.VI ? nameVi : nameEn}</h3>
                       <h4>Nội khoa</h4>
@@ -81,4 +87,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Doctor);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Doctor));

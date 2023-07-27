@@ -47,7 +47,8 @@
         "position": "Position",
         "avatar": "Avatar",
         "save": "Save",
-        "cancel": "Cancel"
+        "cancel": "Cancel",
+        "upload-image": "Upload image"
     },
     "homepage": {
         "title": "Outstanding doctor",

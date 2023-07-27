@@ -6,6 +6,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { emitter } from "../../../utils/emitter";
 import * as actions from "../../../store/actions";
 import { LANGUAGES, CommonUtils } from "../../../utils";
+import "./ModelUserRedux.scss";
 
 class ModalUser extends Component {
   constructor(props) {
@@ -94,10 +95,12 @@ class ModalUser extends Component {
   handleOnChangeImage = async (event) => {
     let data = event.target.files;
     let file = data[0];
+    let objectUrl = URL.createObjectURL(file);
     if (file) {
       let base64 = await CommonUtils.getBase64(file);
       this.setState({
         avatar: base64,
+        previewImgURL: objectUrl,
       });
     }
   };
@@ -297,19 +300,31 @@ class ModalUser extends Component {
                     </select>
                   </div>
                   <div className=" col-md-3">
-                    <label className="form-label " htmlFor="previewImg">
-                      <FormattedMessage id="manage-user.avatar" />
-                    </label>
-                    <input
-                      id="previewImg"
-                      type="file"
-                      className="form-control"
-                      placeholder="Avatar"
-                      // value={avatar}
-                      onChange={(event) => {
-                        this.handleOnChangeImage(event);
-                      }}
-                    />
+                    <div className="previewImg-container">
+                      <label className="form-label ">
+                        <FormattedMessage id="manage-user.avatar" />
+                      </label>
+                      <input
+                        type="file"
+                        id="previewImg"
+                        hidden
+                        onChange={(event) => {
+                          this.handleOnChangeImage(event);
+                        }}
+                      />
+                      <label className="label-upload" htmlFor="previewImg">
+                        <FormattedMessage id="manage-user.upload-image" />
+                        <i className="fas fa-upload"></i>
+                      </label>
+                      {this.state.previewImgURL && (
+                        <div
+                          className="preview-img"
+                          style={{
+                            backgroundImage: `url(${this.state.previewImgURL})`,
+                          }}
+                        ></div>
+                      )}
+                    </div>
                   </div>
                 </form>
               </div>

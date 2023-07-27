@@ -46,7 +46,8 @@
         "position": "Chức danh",
         "avatar": "Ảnh đại diện",
         "save": "Lưu",
-        "cancel": "Thoát"
+        "cancel": "Thoát",
+        "upload-image": "Tải ảnh"
     },
     "homepage": {
         "title": "Bác sĩ nổi bật",
