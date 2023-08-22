@@ -3,20 +3,20 @@ export const adminMenu = [
     //hệ thống
     name: "menu.admin.manage-user",
     menus: [
-      {
-        name: "menu.admin.user-manage",
-        link: "/system/user-manage",
-        // subMenus: [
-        //   {
-        //     name: "menu.system.system-administrator.manage-doctor",
-        //     link: "/system/user-manage",
-        //   },
-        //   {
-        //     name: "menu.system.system-administrator.manage-admin",
-        //     link: "/system/user-redux",
-        //   },
-        // ],
-      },
+      // {
+      //   name: "menu.admin.user-manage",
+      //   link: "/system/user-manage",
+      //   // subMenus: [
+      //   //   {
+      //   //     name: "menu.system.system-administrator.manage-doctor",
+      //   //     link: "/system/user-manage",
+      //   //   },
+      //   //   {
+      //   //     name: "menu.system.system-administrator.manage-admin",
+      //   //     link: "/system/user-redux",
+      //   //   },
+      //   // ],
+      // },
       {
         name: "menu.admin.manage-admin",
         link: "/system/manage-admin",
@@ -28,6 +28,10 @@ export const adminMenu = [
       {
         name: "menu.admin.crud-redux",
         link: "/system/user-redux",
+      },
+      {
+        name: "menu.doctor.manage-schedule",
+        link: "/doctor/manage-schedule",
       },
     ],
   },
@@ -46,6 +50,18 @@ export const adminMenu = [
       {
         name: "menu.admin.manage-specialty",
         link: "/system/manage-specialty",
+      },
+    ],
+  },
+];
+
+export const doctorMenu = [
+  {
+    name: "menu.admin.manage-user",
+    menus: [
+      {
+        name: "menu.doctor.manage-schedule",
+        link: "/doctor/manage-schedule",
       },
     ],
   },

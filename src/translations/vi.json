@@ -26,12 +26,20 @@
                 "description": "Thông tin mô tả"
             } ,            
             "manage-admin": "Quản lí quản trị viên",
-            "crud-redux": "Tạo người dùng",
+            "crud-redux": "Quản lí người dùng",
             "clinic": "Phòng khám",
             "manage-clinic": "Quản lí phòng khám",
             "specialty":"Chuyên khoa",
             "manage-specialty": "Quản lí chuyên khoa"
         } 
+        ,
+        "doctor": {
+            "manage-schedule": "Quản lí lịch khám",
+            "title": "Quản lí lịch khám",
+            "select-doctor": "Chọn bác sĩ",
+            "select-date": "Chọn ngày",
+            "btn-save": "Lưu"
+        }
     },
     "manage-user": {
         "add": "Thêm mới người dùng",

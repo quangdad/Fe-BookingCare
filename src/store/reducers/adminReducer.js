@@ -9,6 +9,8 @@ const initialState = {
   isloadingGender: false,
   dataDoctor: [],
   allDoctor: [],
+  detailDoctor: [],
+  dataTime: [],
 };
 
 const adminReducer = (state = initialState, action) => {
@@ -76,13 +78,31 @@ const adminReducer = (state = initialState, action) => {
       };
     case actionTypes.FETCH_ALL_DOCTOR_SUCCESS:
       state.allDoctor = action.allDoctor;
-      console.log("success");
       return {
         ...state,
       };
     case actionTypes.FETCH_ALL_DOCTOR_FAIL:
       state.allDoctor = [];
-      console.log("fail");
+      return {
+        ...state,
+      };
+    case actionTypes.FETCH_DETAIL_DOCTOR_SUCCESS:
+      state.detailDoctor = action.detailDoctor;
+      return {
+        ...state,
+      };
+    case actionTypes.FETCH_DETAIL_DOCTOR_FAIL:
+      state.detailDoctor = [];
+      return {
+        ...state,
+      };
+    case actionTypes.FETCH_ALLCODE_SCHEDULE_DOCTOR_SUCCESS:
+      state.dataTime = action.dataTime;
+      return {
+        ...state,
+      };
+    case actionTypes.FETCH_ALLCODE_SCHEDULE_DOCTOR_FAIL:
+      state.dataTime = [];
       return {
         ...state,
       };

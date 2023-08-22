@@ -5,7 +5,6 @@ import { ConnectedRouter as Router } from "connected-react-router";
 import { history } from "../redux";
 import { ToastContainer } from "react-toastify";
 import CustomScrollbars from "../components/CustomScrollbars";
-
 import {
   userIsAuthenticated,
   userIsNotAuthenticated,
@@ -21,6 +20,7 @@ import System from "../routes/System";
 import { CustomToastCloseButton } from "../components/CustomToast";
 import HomePage from "./HomePage/HomePage";
 import DetailDoctor from "./Patient/Doctor/DetailDoctor";
+import Doctor from "../routes/Doctor";
 class App extends Component {
   handlePersistorState = () => {
     const { persistor } = this.props;
@@ -59,6 +59,7 @@ class App extends Component {
                   />
                   <Route path={path.HOMEPAGE} exact component={HomePage} />
                   <Route path={path.DETAIL_DOCTOR} component={DetailDoctor} />
+                  <Route path={path.DOCTOR} component={Doctor} />
                 </Switch>
               </CustomScrollbars>
             </div>
@@ -77,7 +78,7 @@ class App extends Component {
             /> */}
             <ToastContainer
               position="bottom-right"
-              autoClose={5000}
+              autoClose={3000}
               hideProgressBar={false}
               newestOnTop={false}
               closeOnClick

@@ -8,6 +8,7 @@ import {
   getDoctorHomeService,
   getAllDoctor,
   saveDetailDoctor,
+  getDetailDoctor,
 } from "../../services/userService";
 import axios from "axios";
 import { emitter } from "../../utils/emitter";
@@ -20,7 +21,7 @@ export const fetchGenderStart = () => {
         type: actionTypes.FETCH_GENDER_START,
       });
       let res = await getAllCodeService("GENDER");
-      if (res && res.data.err === 0) {
+      if (res && res.data.err == 0) {
         dispatch(fetchGenderSuccess(res.data));
       } else {
         dispatch(fetchGenderFail());
@@ -43,7 +44,7 @@ export const fetchRoleStart = () => {
   return async (dispatch, getState) => {
     try {
       let res = await getAllCodeService("ROLE");
-      if (res && res.data.err === 0) {
+      if (res && res.data.err == 0) {
         dispatch(fetchRoleSuccess(res.data));
       } else {
         dispatch(fetchRoleFail());
@@ -66,7 +67,7 @@ export const fetchPositionStart = () => {
   return async (dispatch, getState) => {
     try {
       let res = await getAllCodeService("POSITION");
-      if (res && res.data.err === 0) {
+      if (res && res.data.err == 0) {
         dispatch(fetchPositionSuccess(res.data));
       } else {
         dispatch(fetchPositionFail());
@@ -89,7 +90,7 @@ export const fetchAllUsers = () => {
   return async (dispatch, getState) => {
     try {
       let res = await getAllUsers("ALL");
-      if (res && res.data.err === 0) {
+      if (res && res.data.err == 0) {
         let reserve = await res.data.user.reverse();
         dispatch(fetchAllUsersSuccess(reserve));
       } else {
@@ -112,7 +113,7 @@ export const fetchUser = (userId) => {
   return async (dispatch, getState) => {
     try {
       let res = await getAllUsers(userId);
-      if (res && res.data.err === 0) {
+      if (res && res.data.err == 0) {
         dispatch(fetchUsersSuccess());
       } else {
         dispatch(fetchUsersFail());
@@ -134,7 +135,7 @@ export const createNewUser = (data) => {
   return async (dispatch, getState) => {
     try {
       let res = await createNewUserService(data);
-      if (res && res.data.err === 0) {
+      if (res && res.data.err == 0) {
         toast.success("Create a new user succeed!");
         dispatch(createNewUserSuccess());
         dispatch(fetchAllUsers());
@@ -247,18 +248,59 @@ export const saveDetailDoctorService = (data) => {
       let response = await saveDetailDoctor(data);
       console.log("data", response.data.err);
       if (response && response.data.err == 0) {
-        toast.success("Create a new user succeed!");
+        toast.success("Save doctor's infomation succeed!");
         dispatch({
           type: actionTypes.SAVE_DOCTOR_DETAIL_SUCCESS,
         });
       } else {
-        toast.error("Create a new user fail!");
+        toast.error("Save doctor's infomation fail!");
         dispatch({
           type: actionTypes.SAVE_DOCTOR_DETAIL_FAIL,
         });
       }
     } catch (e) {
       console.log("SAVE_DOCTOR_DETAIL_FAIL", e);
+    }
+  };
+};
+
+export const fetchDetailDoctor = (putData) => {
+  return async (dispatch, getState) => {
+    try {
+      let response = await getDetailDoctor(putData);
+      if (response && response.data.err == 0) {
+        dispatch({
+          type: actionTypes.FETCH_DETAIL_DOCTOR_SUCCESS,
+          detailDoctor: response.data,
+        });
+      } else {
+        dispatch({
+          type: actionTypes.FETCH_DETAIL_DOCTOR_FAIL,
+        });
+      }
+    } catch (e) {
+      console.log("FETCH_DETAIL_DOCTOR_FAIL", e);
+    }
+  };
+};
+
+export const fetchScheduleDoctor = () => {
+  return async (dispatch, getState) => {
+    try {
+      let res = await getAllCodeService("TIME");
+      if (res && res.data.err == 0) {
+        dispatch({
+          type: actionTypes.FETCH_ALLCODE_SCHEDULE_DOCTOR_SUCCESS,
+          dataTime: res.data,
+        });
+      } else {
+        dispatch({
+          type: actionTypes.FETCH_ALLCODE_SCHEDULE_DOCTOR_FAIL,
+        });
+      }
+    } catch (e) {
+      fetchPositionFail();
+      console.log("FETCH_ALLCODE_SCHEDULE_DOCTOR_FAIL", e);
     }
   };
 };

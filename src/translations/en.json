@@ -12,7 +12,7 @@
         "language": "EN",
         "banner1": "MEDICAL FOUNDATION",
         "banner2": "COMPREHENSIVE PET CARE",
-        "user-name": "Welcome"
+        "user-name": "Welcome, "
 
     },
     "menu":{
@@ -27,15 +27,22 @@
                 "select": "Choose the doctor",
                 "description": "Description"
             } ,
-            "crud-redux": "Create User ",
+            "crud-redux": "Manage User ",
             "clinic": "Clinic",
             "manage-clinic": "Clinic manage",
             "specialty": " Specialty",
             "manage-specialty": " Specialty manage"
-        } 
+        } ,
+        "doctor": {
+            "manage-schedule": "Manage schedule",
+            "title": "Manage schedule",
+            "select-doctor": "Choose the doctor",
+            "select-date": "Choose date",
+            "btn-save": "Save"
+        }
     },
     "manage-user": {
-        "add": "Thêm mới người dùng",
+        "add": "Add new user",
         "email": "Email",
         "password": "Password",
         "first-name": "First name",

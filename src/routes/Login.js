@@ -76,6 +76,7 @@ class Login extends Component {
   };
 
   handlerKeyDown = (event) => {
+    console.log("enter");
     const keyCode = event.which || event.keyCode;
     if (keyCode === KeyCodeUtils.ENTER) {
       event.preventDefault();

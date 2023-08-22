@@ -1,7 +1,7 @@
 body {
     .detai-doctor-container {
         margin: 0 100px;
-        height: 700px;
+        height: max-content;
 
         .detai-doctor-intro {
             height: 25%;
@@ -30,8 +30,6 @@ body {
                         font-weight: bold;
                     }
                 }
-
-                .content-down {}
             }
         }
     }

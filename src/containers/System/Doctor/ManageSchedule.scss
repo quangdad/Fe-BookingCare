@@ -1,0 +1,55 @@
+body {
+    .manage-schedule-container {
+        margin: 0 150px;
+
+        .content-up {
+            margin: 20px 0;
+            display: flex;
+
+            .content-right {
+                margin-left: auto;
+
+
+            }
+        }
+
+        .content-middle {
+            margin-bottom: 50px;
+
+            .btn-time {
+                background-color: white;
+                color: black;
+                border: 1px solid;
+                margin: 6px 10px;
+
+                &:hover {
+                    background-color: #0d6efd;
+                    border-color: transparent;
+                }
+
+                &:focus {
+                    background-color: #0d6efd;
+                    border-color: transparent;
+                    color: aliceblue;
+                }
+            }
+        }
+
+        .content-down {
+            .btn-save {
+                margin-left: auto;
+                display: flex;
+
+                &:hover {
+                    background-color: #0071ba;
+                    color: white;
+                }
+
+                &:active {
+                    background-color: white;
+                    color: black;
+                }
+            }
+        }
+    }
+}
